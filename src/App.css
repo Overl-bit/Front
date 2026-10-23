@@ -1,0 +1,207 @@
+/* src/App.css - Rediseño Total Temática Selva Tropical */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&display=swap');
+
+:root {
+  --jungle-deep: #03140c;        /* Fondo noche de jungla */
+  --jungle-canopy: #0a2619;      /* Verde copa de árboles */
+  --jungle-leaf: #143d2b;        /* Verde hoja húmeda */
+  --jungle-border: #235d41;      /* Borde tallo vegetal */
+  --emerald-bright: #10b981;    /* Verde esmeralda resplandeciente */
+  --sunburst-yellow: #facc15;   /* Rayo de sol tropical */
+  --orchid-pink: #f43f5e;       /* Flor de orquídea salvaje */
+  --clay-brown: #a16207;        /* Tierra fértil */
+  --text-primary: #f0fdf4;      /* Blanco bambú */
+  --text-muted: #86efac;        /* Verde musgo claro */
+}
+
+body {
+  background-color: var(--jungle-deep);
+  /* Patrón de luz filtrada entre las hojas */
+  background-image: 
+    radial-gradient(ellipse at 10% 20%, rgba(16, 185, 129, 0.12) 0%, transparent 50%),
+    radial-gradient(ellipse at 90% 80%, rgba(250, 204, 21, 0.08) 0%, transparent 50%),
+    linear-gradient(180deg, var(--jungle-deep) 0%, #010a06 100%);
+  background-attachment: fixed;
+  color: var(--text-primary);
+  font-family: 'Outfit', 'Segoe UI', system-ui, sans-serif;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 950px;
+  margin: 0 auto;
+  padding: 50px 20px;
+}
+
+/* Encabezado principal estilo letrero de expedición */
+h1 {
+  text-align: center;
+  font-size: 2.6rem;
+  font-weight: 800;
+  margin-bottom: 40px;
+  color: var(--sunburst-yellow);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 0 4px 20px rgba(250, 204, 21, 0.3), 0 2px 0px #000;
+  position: relative;
+}
+
+h1::after {
+  content: '🌿 🦜 🍃';
+  display: block;
+  font-size: 1.2rem;
+  margin-top: 8px;
+  letter-spacing: 12px;
+}
+
+/* Tarjetas con efecto de cabaña/hoja */
+.card {
+  background: linear-gradient(145deg, var(--jungle-canopy), var(--jungle-leaf));
+  border: 2px solid var(--jungle-border);
+  border-radius: 20px 8px 20px 8px; /* Esquinas asimétricas estilo hoja */
+  padding: 28px;
+  margin-bottom: 35px;
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.7), inset 0 1px 1px rgba(255, 255, 255, 0.1);
+  position: relative;
+}
+
+.card h2 {
+  margin-top: 0;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--emerald-bright);
+  border-bottom: 2px dashed var(--jungle-border);
+  padding-bottom: 14px;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.card h2::before {
+  content: '🌴';
+  font-size: 1.2rem;
+}
+
+/* Formulario */
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  align-items: end;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+
+input, select {
+  background-color: var(--jungle-deep);
+  border: 1.5px solid var(--jungle-border);
+  color: var(--text-primary);
+  padding: 12px 14px;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  outline: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+input:focus, select:focus {
+  border-color: var(--emerald-bright);
+  box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.2);
+  background-color: #051a10;
+}
+
+/* Botón principal estilo 'Explorador' */
+.btn-primary {
+  background: linear-gradient(135deg, var(--sunburst-yellow), #eab308);
+  color: var(--jungle-deep);
+  font-size: 0.95rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border: none;
+  padding: 13px 22px;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(250, 204, 21, 0.25);
+  transition: all 0.2s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(250, 204, 21, 0.4);
+  filter: brightness(1.05);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+/* Tabla temática */
+.table-responsive {
+  overflow-x: auto;
+  border-radius: 14px;
+  border: 1.5px solid var(--jungle-border);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: var(--jungle-deep);
+}
+
+th, td {
+  padding: 16px 18px;
+  text-align: left;
+  border-bottom: 1px solid var(--jungle-leaf);
+}
+
+th {
+  background-color: #051c12;
+  color: var(--sunburst-yellow);
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+tr:hover td {
+  background-color: rgba(20, 61, 43, 0.5);
+}
+
+tr:last-child td {
+  border-bottom: none;
+}
+
+/* Botón eliminar estilo 'Flor venenosa / Peligro' */
+.btn-delete {
+  background-color: rgba(244, 63, 94, 0.1);
+  color: var(--orchid-pink);
+  border: 1.5px solid var(--orchid-pink);
+  padding: 7px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.85rem;
+  transition: all 0.2s ease;
+}
+
+.btn-delete:hover {
+  background-color: var(--orchid-pink);
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(244, 63, 94, 0.3);
+  transform: scale(1.03);
+}
